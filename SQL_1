@@ -132,3 +132,12 @@ ALTER TABLE employee drop COLUMN city;
 
 --Renaming the column name
 ALTER TABLE employee RENAME COLUMN name to Full_Name;
+
+--truncate deletes only data but not table structure(Schema remains as it is)
+truncate table employee;
+
+--Drop deletes everuthing both schema and data
+drop table employee;
+
+--alter
+alter Table employee ADD constraint id_unique UNIQUE(id);
