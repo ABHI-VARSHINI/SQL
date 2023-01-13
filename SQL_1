@@ -102,3 +102,33 @@ Create table if not exists employee_with_constraints_tmp
 --- Example for Integrity Constraint failure with alias name of constraint
 --- Exception will be thrown -> Check constraint 'salary_check' is violated.
 insert into employee_with_constraints_tmp values(1,'Shashank',500,'2021-09-15');
+
+--Creating the table
+Create table if not exists employee
+(
+    id int,
+    name VARCHAR(50),
+    address VARCHAR(50),
+    city VARCHAR(50)
+);
+
+--inserting values into the table
+insert INTO employee VALUES(1, 'Abhi', 'HYD', 'Gachibowli');
+
+--Adding new column into the existing table using Alter
+alter Table employee ADD DOB date;
+
+--Show command to view entire description of the table
+show CREATE TABLE employee;
+
+--Modifying name column size 50 to 100
+ALTER Table employee MODIFY COLUMN name VARCHAR(100);
+
+--Modified name value in large size with more than 50 chars
+insert INTO employee VALUES(2, 'Abhivarshinihasgraduatedin2020 DFGH DXCGVH       XGHGCVB', 'HYDE', 'LPL', '1999-10-16');
+
+--Dropped column city in employee table
+ALTER TABLE employee drop COLUMN city;
+
+--Renaming the column name
+ALTER TABLE employee RENAME COLUMN name to Full_Name;
